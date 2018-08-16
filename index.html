@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS Complete Guide</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{ sayHello() }}</p>
+        <hr>
+        <p v-on:mousemove="updateCoordinates" style="width: 350px;background: yellow;text-align: center;">
+            Coordinates - {{ x }} / {{ y }} - <span v-on:mousemove.stop="">DEAD SPOT</span>
+        </p>
+    </div>
+
+    <script src="src/js/vue.js"></script>
+    <script src="src/js/index.js"></script>
+</body>
+</html>
