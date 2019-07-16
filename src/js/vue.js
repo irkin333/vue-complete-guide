@@ -675,7 +675,7 @@ var uid = 0;
 
 /**
  * A dep is an observable that can have multiple
- * directives subscribing to it.
+ * filtersMixins subscribing to it.
  */
 var Dep = function Dep () {
   this.id = uid++;
@@ -1420,7 +1420,7 @@ function normalizeInject (options, vm) {
 }
 
 /**
- * Normalize raw function directives into object format.
+ * Normalize raw function filtersMixins into object format.
  */
 function normalizeDirectives (options) {
   var dirs = options.directives;
@@ -3077,7 +3077,7 @@ var uid$1 = 0;
 /**
  * A watcher parses an expression, collects dependencies,
  * and fires callback when the expression value changes.
- * This is used for both the $watch() api and directives.
+ * This is used for both the $watch() api and filtersMixins.
  */
 var Watcher = function Watcher (
   vm,
@@ -6139,7 +6139,7 @@ function createPatchFunction (backend) {
               }
               // #6513
               // invoke insert hooks that may have been merged by create hooks.
-              // e.g. for directives that uses the "inserted" hook.
+              // e.g. for filtersMixins that uses the "inserted" hook.
               var insert = ancestor.data.hook.insert;
               if (insert.merged) {
                 // start at index 1 to avoid re-invoking component mounted hook
@@ -8511,7 +8511,7 @@ Vue.config.isReservedAttr = isReservedAttr;
 Vue.config.getTagNamespace = getTagNamespace;
 Vue.config.isUnknownElement = isUnknownElement;
 
-// install platform runtime directives & components
+// install platform runtime filtersMixins & components
 extend(Vue.options.directives, platformDirectives);
 extend(Vue.options.components, platformComponents);
 
@@ -9175,7 +9175,7 @@ function parse (
       if (inVPre) {
         processRawAttrs(element);
       } else if (!element.processed) {
-        // structural directives
+        // structural filtersMixins
         processFor(element);
         processIf(element);
         processOnce(element);
@@ -9568,7 +9568,7 @@ function processAttrs (el) {
       } else if (onRE.test(name)) { // v-on
         name = name.replace(onRE, '');
         addHandler(el, name, value, modifiers, false, warn$2);
-      } else { // normal directives
+      } else { // normal filtersMixins
         name = name.replace(dirRE, '');
         // parse arg
         var argMatch = name.match(argRE);
@@ -10274,8 +10274,8 @@ function genFor (
 function genData$2 (el, state) {
   var data = '{';
 
-  // directives first.
-  // directives may mutate the el's other properties before they are generated.
+  // filtersMixins first.
+  // filtersMixins may mutate the el's other properties before they are generated.
   var dirs = genDirectives(el, state);
   if (dirs) { data += dirs + ','; }
 
@@ -10352,7 +10352,7 @@ function genData$2 (el, state) {
 function genDirectives (el, state) {
   var dirs = el.directives;
   if (!dirs) { return }
-  var res = 'directives:[';
+  var res = 'filtersMixins:[';
   var hasRuntime = false;
   var i, l, dir, needRuntime;
   for (i = 0, l = dirs.length; i < l; i++) {
@@ -10778,7 +10778,7 @@ function createCompilerCreator (baseCompile) {
           finalOptions.modules =
             (baseOptions.modules || []).concat(options.modules);
         }
-        // merge custom directives
+        // merge custom filtersMixins
         if (options.directives) {
           finalOptions.directives = extend(
             Object.create(baseOptions.directives || null),
