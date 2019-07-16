@@ -9,6 +9,7 @@
           <button class="btn btn-default" @click="activePage = 'forms'">Forms</button>
           <button class="btn btn-default" @click="activePage = 'directives'">Directives</button>
           <button class="btn btn-default" @click="activePage = 'mixins'">Filters & Mixins</button>
+          <button class="btn btn-default" @click="activePage = 'animations'">Filters & Mixins</button>
           <hr>
         </div>
       </div>
@@ -55,6 +56,8 @@
     </div>
 
     <app-filters-mixins v-show="activePage == 'mixins'"></app-filters-mixins>
+
+    <app-animation-demo v-show="activePage == 'animations'"></app-animation-demo>
   </div>
 </template>
 
@@ -66,6 +69,7 @@
 
   import Form from './components/Forms/Form.vue';
   import FiltersMixins from './filtersMixins/FiltersMixins.vue';
+  import AnimationDemo from './animations/AnimationDemo.vue';
 
   export default {
     data() {
@@ -85,7 +89,8 @@
       appGreen: Green,
       appRed: Red,
       'form-practice': Form,
-      appFiltersMixins: FiltersMixins
+      appFiltersMixins: FiltersMixins,
+      appAnimationDemo: AnimationDemo
     },
     directives: {
       'local-highlight': {
