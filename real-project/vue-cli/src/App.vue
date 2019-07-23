@@ -9,7 +9,7 @@
           <button class="btn btn-default" @click="activePage = 'forms'">Forms</button>
           <button class="btn btn-default" @click="activePage = 'directives'">Directives</button>
           <button class="btn btn-default" @click="activePage = 'mixins'">Filters & Mixins</button>
-          <button class="btn btn-default" @click="activePage = 'animations'">Filters & Mixins</button>
+          <button class="btn btn-default" @click="activePage = 'animations'">Animations</button>
           <hr>
         </div>
       </div>
