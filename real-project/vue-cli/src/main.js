@@ -1,5 +1,6 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import VueResource from 'vue-resource';
+import App from './App.vue';
 
 /* App1.vue */
 //import AppServerComponent from './AppServerComponent.vue'
@@ -34,6 +35,8 @@ Vue.directive('highlight', {
 Vue.filter('addLength', (value) => {
   return value + ' (' + value.length + ')';
 });
+
+Vue.use(VueResource);
 
 new Vue({
   el: '#app',

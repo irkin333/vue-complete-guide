@@ -11,6 +11,7 @@
           <button class="btn btn-default" @click="activePage = 'mixins'">Filters & Mixins</button>
           <button class="btn btn-default" @click="activePage = 'animations'">Animations</button>
           <button class="btn btn-default" @click="activePage = 'animated-list'">Animated List</button>
+          <button class="btn btn-default" @click="activePage = 'http'">HTTP</button>
           <hr>
         </div>
       </div>
@@ -61,6 +62,8 @@
     <app-animation-demo v-show="activePage == 'animations'"></app-animation-demo>
 
     <app-animated-list v-show="activePage == 'animated-list'"></app-animated-list>
+
+    <app-http-demo v-show="activePage == 'http'"></app-http-demo>
   </div>
 </template>
 
@@ -74,12 +77,13 @@
   import FiltersMixins from './filtersMixins/FiltersMixins.vue';
   import AnimationDemo from './animations/AnimationDemo.vue';
   import AnimatedList from './animations/AnimatedList.vue';
+  import HTTPDemo from './http/HTTPDemo.vue';
 
   export default {
     data() {
       return {
         activeComponent: 'appBlue',
-        activePage: 'animated-list'
+        activePage: 'http'
       }
     },
     methods: {
@@ -95,7 +99,8 @@
       'form-practice': Form,
       appFiltersMixins: FiltersMixins,
       appAnimationDemo: AnimationDemo,
-      appAnimatedList: AnimatedList
+      appAnimatedList: AnimatedList,
+      appHttpDemo: HTTPDemo
     },
     directives: {
       'local-highlight': {
