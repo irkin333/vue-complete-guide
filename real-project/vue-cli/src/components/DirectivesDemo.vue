@@ -1,21 +1,23 @@
 <template>
-  <div>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <br>
-          <navigation></navigation>
-          <hr>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>Custom directive</h3>
+        <div v-highlight:background.delayed="'red'">Highlight custom directive</div>
+        <div v-local-highlight:color.delayed.blink="{mainColor: 'red', secondColor: 'green', delay: 500}">Local highlight custom directive</div>
       </div>
     </div>
-
-    <router-view></router-view>
+    <hr>
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>Home directive</h3>
+        <div v-myon:click="directiveTest">Myon custom directive</div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-  import Navigation from './Navigation.vue';
 
   export default {
     data() {
@@ -25,9 +27,6 @@
       directiveTest: () => {
         console.log('Hello! Directive is clicked!')
       }
-    },
-    components: {
-      navigation: Navigation,
     },
     directives: {
       'local-highlight': {
@@ -67,5 +66,3 @@
     }
   }
 </script>
-
-<style></style>
