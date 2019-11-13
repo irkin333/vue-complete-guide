@@ -102,6 +102,11 @@
       submitForm() {
         this.formIsVisible = !this.formIsVisible;
       }
+    },
+    beforeRouteLeave: (to, from, next) => {
+      if(confirm('Are you sure you want to leave this page?')) {
+        next();
+      }
     }
   }
 </script>
