@@ -9,5 +9,6 @@
     <router-link to="/animation-demo" tag="li" active-class="active"><a>Animation Demo</a></router-link>
     <router-link to="/animated-list" tag="li" active-class="active"><a>Animated List</a></router-link>
     <router-link to="/http-demo" tag="li" active-class="active"><a>HTTP demo</a></router-link>
+    <router-link to="/calculator" tag="li" active-class="active"><a>Calculator</a></router-link>
   </ul>
 </template>

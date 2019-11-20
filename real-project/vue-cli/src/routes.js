@@ -9,6 +9,7 @@ import App from './App.vue';
 // import AnimationDemo from './animations/AnimationDemo.vue';
 // import AnimatedList from './animations/AnimatedList.vue';
 // import HTTPDemo from './http/HTTPDemo.vue';
+//import Calculator from './components/Calculator.vue';
 
 /* lazy load of bundles */
 const User = resolve => {
@@ -51,6 +52,11 @@ const HTTPDemo = resolve => {
     resolve(require('./http/HTTPDemo.vue'));
   });
 };
+const Calculator = resolve => {
+  require.ensure(['./components/Calculator.vue'], () => {
+    resolve(require('./components/Calculator.vue'));
+  });
+};
 
 export const routes = [
   { path: '', component: App },
@@ -69,7 +75,8 @@ export const routes = [
   { path: '/mixins', component: FiltersMixins },
   { path: '/animation-demo', component: AnimationDemo },
   { path: '/animated-list', component: AnimatedList },
-  { path: '/http-demo', component: HTTPDemo }
+  { path: '/http-demo', component: HTTPDemo },
+  { path: '/calculator', component: Calculator }
 ];
 
 
